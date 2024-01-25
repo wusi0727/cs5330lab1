@@ -1,0 +1,23 @@
+# Sky Identification in Images Using Traditional Computer Vision Techniques
+## Executive Summary
+This report outlines traditional computer vision techniques suitable for sky identification in images, considering a variety of sky appearances such as clear, cloudy, sunrise, and sunset conditions. Techniques discussed include color thresholding, edge detection, region-based segmentation, and RG chromaticity, each evaluated for effectiveness in different environmental conditions. The report suggests a multi-faceted approach to handle the complexity and variability in sky appearances.
+## Introduction
+Sky identification in images is a challenging task due to the wide variability in appearances caused by weather conditions, time of day, and geographical factors. Traditional computer vision techniques, though sometimes overshadowed by advanced machine learning models, remain vital due to their efficiency and effectiveness in specific scenarios. This report investigates various traditional techniques suitable for sky identification.
+## Techniques for Sky Identification
+### Color Thresholding
+Description: Identifies pixels within a specific color range. Effective for skies with distinct colors (blue, orange, red).
+Limitations: Struggles in overcast or non-distinct sky conditions.
+### Edge Detection
+Description: Uses algorithms like Sobel or Canny to detect edges and delineate the sky from other elements, useful for identifying horizons.
+Limitations: Less effective when the horizon is obstructed.
+### RG Chromaticity
+Description: Focuses on red and green components, useful for normalizing brightness variations.
+Advantages: Robust across different times of the day.
+Limitations: May need to be combined with other techniques.
+### Texture Analysis
+Description: Uses techniques like GLCM or LBP to identify sky regions based on texture, particularly useful for cloudy skies.
+Limitations: Complexity in implementation and interpretation.
+## Proposed Approach
+A multi-faceted approach is recommended, combining the strengths of the above techniques. Begin with color thresholding and RG chromaticity for initial segmentation, followed by refinement using edge detection and region-based segmentation. Texture analysis is suggested for cloudy conditions. Iterative testing and parameter tuning are essential for optimal performance.
+### Conclusion
+Traditional computer vision techniques offer valuable tools for sky identification in images. By combining various methods, one can create a robust system capable of handling the diverse appearances of the sky. Future work may include the integration of machine learning models to enhance performance further.
