@@ -1,0 +1,27 @@
+import cv2
+
+# Load an image
+image = cv2.imread('skyImages/2.jpg')
+
+hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+# Define the range for blue color (this may need adjustments)
+lower_blue = (100, 50, 50)
+upper_blue = (140, 255, 255)
+
+# Threshold the HSV image to get only blue colors
+mask = cv2.inRange(hsv_image, lower_blue, upper_blue)
+
+edges = cv2.Canny(image, 100, 200)
+
+refined_mask = cv2.bitwise_and(mask, mask, mask=edges)
+
+# Apply the mask on the original image
+sky = cv2.bitwise_and(image, image, mask=mask)
+
+# Display the original image and the result
+cv2.imshow('Original Image', image)
+cv2.imshow('Sky Region', sky)
+cv2.waitKey(0)
+cv2.destroyAllWindows() 
+
