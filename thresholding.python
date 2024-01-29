@@ -1,27 +1,36 @@
 import cv2
 
 # Load an image
-image = cv2.imread('skyImages/2.jpg')
+image = cv2.imread('skyImages/1.jpg')
 
+# Check if the image is loaded correctly
+if image is None:
+    print("Error: Could not load image. Please check the file path.")
+    exit()
+
+# Convert the image to HSV color space
 hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-# Define the range for blue color (this may need adjustments)
+# Define the range for blue color 
 lower_blue = (100, 50, 50)
 upper_blue = (140, 255, 255)
 
 # Threshold the HSV image to get only blue colors
 mask = cv2.inRange(hsv_image, lower_blue, upper_blue)
 
+# Use Canny Edge Detector
 edges = cv2.Canny(image, 100, 200)
 
+# Refine the mask using the edges detected
 refined_mask = cv2.bitwise_and(mask, mask, mask=edges)
 
-# Apply the mask on the original image
-sky = cv2.bitwise_and(image, image, mask=mask)
+# Apply the refined mask on the original image to get the sky region
+refined_sky = cv2.bitwise_and(image, image, mask=refined_mask)
 
-# Display the original image and the result
+# Display the original image and the refined sky region
 cv2.imshow('Original Image', image)
-cv2.imshow('Sky Region', sky)
+cv2.imshow('Refined Sky Region', refined_sky)
 cv2.waitKey(0)
-cv2.destroyAllWindows() 
+cv2.destroyAllWindows()
+
 
