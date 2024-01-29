@@ -1,36 +1,35 @@
 import cv2
+import numpy as np
+from PIL import Image
 
-# Load an image
-image = cv2.imread('skyImages/1.jpg')
+def detect_sky(image_path):
+    # Load an image
+    image = cv2.imread(image_path)
+    if image is None:
+        print("Error: Could not load image. Please check the file path.")
+        return
 
-# Check if the image is loaded correctly
-if image is None:
-    print("Error: Could not load image. Please check the file path.")
-    exit()
+    # Convert the image to HSV color space
+    hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-# Convert the image to HSV color space
-hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    # Define the range for sky color (typically blue)
+    lower_blue = np.array([100, 50, 50])
+    upper_blue = np.array([140, 255, 255])
 
-# Define the range for blue color 
-lower_blue = (100, 50, 50)
-upper_blue = (140, 255, 255)
+    # Create a mask that captures areas in the range
+    mask = cv2.inRange(hsv_image, lower_blue, upper_blue)
 
-# Threshold the HSV image to get only blue colors
-mask = cv2.inRange(hsv_image, lower_blue, upper_blue)
+    # Apply the mask to get the sky region
+    sky_region = cv2.bitwise_and(image, image, mask=mask)
 
-# Use Canny Edge Detector
-edges = cv2.Canny(image, 100, 200)
+    # Display the original image and the sky region
+    cv2.imshow('Original Image', image)
+    cv2.imshow('Sky Region', sky_region)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
-# Refine the mask using the edges detected
-refined_mask = cv2.bitwise_and(mask, mask, mask=edges)
-
-# Apply the refined mask on the original image to get the sky region
-refined_sky = cv2.bitwise_and(image, image, mask=refined_mask)
-
-# Display the original image and the refined sky region
-cv2.imshow('Original Image', image)
-cv2.imshow('Refined Sky Region', refined_sky)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-
+# Path to your image
+image_path = 'skyImages/1.jpg'
+# Detect and display sky region
+detect_sky(image_path)
 
