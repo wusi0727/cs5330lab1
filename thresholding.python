@@ -2,11 +2,13 @@ import cv2
 import numpy as np
 from PIL import Image
 
-def detect_sky(image_path):
+print("OpenCV version:", cv2.__version__)
+
+""" def detect_sky(image_path):
     # Load an image
     image = cv2.imread(image_path)
     if image is None:
-        print("Error: Could not load image. Please check the file path.")
+        print(f"Error: Could not load image from {image_path}. Check the file path.")
         return
 
     # Convert the image to HSV color space
@@ -22,14 +24,25 @@ def detect_sky(image_path):
     # Apply the mask to get the sky region
     sky_region = cv2.bitwise_and(image, image, mask=mask)
 
+    # Convert the result back to RGB for Gradio display
+    output_image = cv2.cvtColor(sky_region, cv2.COLOR_BGR2RGB)
+    output_image = Image.fromarray(output_image)
+
     # Display the original image and the sky region
     cv2.imshow('Original Image', image)
-    cv2.imshow('Sky Region', sky_region)
+    cv2.imshow('Sky Region', output_image)
+    
+    # Wait indefinitely until a key is pressed
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-# Path to your image
-image_path = 'skyImages/1.jpg'
-# Detect and display sky region
-detect_sky(image_path)
+def main():
+    # Path to your image
+    image_path = 'skyImages/1.jpg'  # Replace with your image path
 
+    # Detect and display sky region
+    detect_sky(image_path)
+
+if __name__ == "__main__":
+    main()
+ """
