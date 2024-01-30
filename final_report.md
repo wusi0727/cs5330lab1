@@ -62,7 +62,8 @@ and visual representation of the effectiveness of each technique.
 By examining the outcomes side-by-side, we aim to offer a clear and direct understanding of how each method performs 
 under various conditions, highlighting their strengths and limitations. 
 This visual comparison serves as a critical tool in evaluating the practical applicability and accuracy of 
-our color thresholding and gradient-based methods in real-world scenarios.
+our color thresholding and gradient-based methods in real-world scenarios. The most left side image is the original, and the second left
+is the result from the traditional color thresholding, and the most right is the result from the gradient method.
 
 ![images1](output_images/combined_0.jpg)
 ![images2](output_images/combined_1.jpg)
@@ -105,9 +106,7 @@ particularly in applications where lighting conditions can be unpredictable and 
 ### Technique 2: Gradient-Based Methods and Median Filtering
 1. Effectiveness: This approach demonstrated high accuracy in complex lighting scenarios, such as during sunsets or in cloudy conditions. Its use of gradient-based edge detection and median filtering effectively captured the nuances of different sky conditions.
 2. Limitations: The primary limitation was its computational intensity. This method may not be ideal for time-sensitive applications or devices with limited processing capabilities.
-## Limitations
-1. Generalizability: Both techniques, while effective in their respective ideal conditions, still face challenges in universal applicability across all types of sky images.
-2. Robustness: Variations in weather, geography, and camera settings can significantly affect the performance of both methods.
+
 ## Potential Improvements
 1. Hybrid Approach: Combining both methods could leverage the speed of color thresholding and the accuracy of gradient-based methods, potentially creating a more robust and versatile solution.
 2. Machine Learning Integration: Employing machine learning, particularly deep learning techniques, could offer a more adaptive approach to sky detection, capable of learning from a wide range of scenarios and conditions.

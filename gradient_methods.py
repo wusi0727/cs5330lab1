@@ -54,7 +54,7 @@ def process_image(image_path):
 
 
 def main():
-    image_path = 'skyImages/1.jpg'  # Replace with your image path
+    image_path = 'skyImages/1.jpg'
     process_image(image_path)
 
 
