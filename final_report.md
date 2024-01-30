@@ -117,3 +117,8 @@ particularly in applications where lighting conditions can be unpredictable and 
 2. Problem-Solving: I developed a deeper understanding of how to approach a problem with multiple solutions and learned to evaluate the effectiveness of each.
 3. Adaptability: This project underscored the importance of adaptability in algorithm design, especially in handling real-world variability in data.
 4. Future Direction: I gained insights into the potential of machine learning in image processing and am motivated to explore this area further, recognizing its capacity to solve complex, dynamic problems in computer vision.
+
+# Reference
+1. Liu, K. (2022). An adaptive median filtering of visual product image based on gradient direction information. International Journal of Product Development, 26(1-4), 206-215.
+2. Evans, A. N., & Liu, X. U. (2006). A morphological gradient approach to color edge detection. IEEE Transactions on Image Processing, 15(6), 1454-1463.
+3. Zhu, R., & Wang, Y. (2012). Application of Improved Median Filter on Image Processing. J. Comput., 7(4), 838-841.

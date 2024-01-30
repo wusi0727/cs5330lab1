@@ -31,8 +31,8 @@ def process_and_compare(image_paths, output_dir=None):
         result1 = detect_sky(img)
         result2 = detect_sky_area(img)
 
-        # Combine results side by side
-        combined = np.concatenate((result1, result2), axis=1)
+        # Combine the original image with the results side by side
+        combined = np.concatenate((img, result1, result2), axis=1)
 
         if output_dir:
             # Save combined image
