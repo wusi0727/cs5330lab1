@@ -53,7 +53,7 @@ and observe the robustness and accuracy of our algorithm.
 I invite you to try out the demo and explore its capabilities firsthand at
 [Sky Detection Demo](http://127.0.0.1:7860) based the following snippets:
 
-[gradio_demo](gradio_demo.python)
+[gradio_demo](gradio_demo.py)
 
 # Comparative Analysis
 This section will show the results obtained from applying the two distinct sky detection methods 
