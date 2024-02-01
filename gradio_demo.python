@@ -61,4 +61,4 @@ iface = gr.Interface(
     description="Upload an image to detect the sky region."
 )
 
-iface.launch()
+iface.launch(share=True)
